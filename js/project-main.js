@@ -1,0 +1,73 @@
+'use strict'
+
+console.log('main')
+function translate1(ev) {
+    ev.preventDefault();
+    
+    var srcTxt = document.querySelector('#src1').value
+    // var srcTxt = '8.5" H x 8.75" W x 2" D'
+    var srcTxts = srcTxt.split(' ')
+    var resTxts = []
+    
+    console.log('src',srcTxts)
+    srcTxts.forEach((txt,i) => {
+        if (txt.toUpperCase() === 'w'.toUpperCase()) {
+            txt = strSplice(txt,0,4,'רוחב')
+            // resTxts[i+1] = txt            
+            resTxts[i] = txt
+
+        }
+        else if (txt.toUpperCase() === 'h'.toUpperCase()) {
+            txt = strSplice(txt,0,4,'גובה')
+            // resTxts[i+1] = txt
+            resTxts[i] = txt
+
+        }
+        else if (txt.toUpperCase() === 'd'.toUpperCase()) {
+            txt = strSplice(txt,0,4,'עומק')
+            // resTxts[i+1] = txt
+            resTxts[i] = txt
+
+        }
+        else if (txt.toUpperCase() === 'x'.toUpperCase()) {
+            txt = strSplice(txt,0,1,'*')
+            resTxts[i] = txt
+        }
+        else if (txt.toUpperCase() === '"'.toUpperCase()) {
+            txt = strSplice(txt,0,4,'ס"מ')
+        }
+        else if (txt.includes('"')) {
+            var idx = txt.indexOf('"')
+            txt = strSplice(txt,idx,4,' ס"מ')
+            txt = strSplice(txt,0,idx,convertInchToCm(txt,idx))
+            // txt = txt.split(' ').reverse().join(' ')
+            // resTxts[i-1] = txt
+            resTxts[i] = txt
+            
+        }
+    })
+    console.log('res:',resTxts)
+    var resTxt = resTxts.join(' ')
+    console.log('res:',resTxt)
+    document.querySelector('#res1').value = resTxt
+}
+
+function convertInchToCm(txt,idx) {
+    var numStr = txt.substring(0,idx)
+    var num = parseFloat(numStr)
+    num *= 2.54 * 10
+    num = Math.round(num) / 10
+    return num
+}
+
+function strSplice(str1, idx, length, value) {
+    var str2 = '';
+    for (var i = 0; i < idx; i++) {
+        str2 += str1.charAt(i)
+    }
+    str2 += value
+    for (var i = idx + length; i < str1.length; i++) {
+        str2 += str1.charAt(i)
+    }
+    return str2
+}
