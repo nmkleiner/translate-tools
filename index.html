@@ -10,11 +10,8 @@
     <h1>Your Life Is Easier Now..</h1>
     test data: w 1" x h 1.1" X D 2.22"
     <div class="container con-1">
-        <form action="" onsubmit="translate1(event)">
-            <textarea value='w 1" x h 1.1" X D 2.22"' id="src1" cols="30" rows="10" placeholder='W num" X H num" X D num"'></textarea>
+            <textarea oninput="translate1()" id="src1" cols="30" rows="10" placeholder='W num" X H num" X D num"'></textarea>
             <textarea id="res1" cols="30" rows="10"></textarea>
-            <button class="btn btn-warning">Translate!</button>
-        </form>
     </div>
 
     <script  src="js/project-main.js"></script>
