@@ -39,7 +39,7 @@ function translate1() {
     // console.log('res:',resTxts)
     var resTxt = resTxts.join(' ')
     // console.log('res:',resTxt)
-    document.querySelector('#res1').value = resTxt
+    document.querySelector('#res').value = resTxt
 }
 
 function convertInchToCm(txt,idx) {
@@ -49,6 +49,21 @@ function convertInchToCm(txt,idx) {
     num = Math.round(num) / 10
     return num
 }
+function simpleConvertInchToCm(txt) {
+    var num = parseFloat(txt)
+    num *= 2.54 * 10
+    num = Math.round(num) / 10
+    document.querySelector('#res').value = num
+}
+
+function simpleConvertLbToKg(txt) {
+    var num = parseFloat(txt)
+    num *= 0.454 * 10
+    num = Math.round(num) / 10
+    document.querySelector('#res').value = num
+
+}
+
 
 function strSplice(str1, idx, length, value) {
     var str2 = '';
