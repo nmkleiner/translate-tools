@@ -55,6 +55,18 @@ function simpleConvertInchToCm(txt) {
     num = Math.round(num) / 10
     document.querySelector('#res').value = num
 }
+function simpleConvertFeetToCm(txt) {
+    var num = parseFloat(txt)
+    num *= 30.48 * 10
+    num = Math.round(num) / 10
+    document.querySelector('#res').value = num
+}
+function simpleConvertFeetToM(txt) {
+    var num = parseFloat(txt)
+    num *= (30.48 / 100) * 10
+    num = Math.round(num) / 10
+    document.querySelector('#res').value = num
+}
 
 function simpleConvertLbToKg(txt) {
     var num = parseFloat(txt)

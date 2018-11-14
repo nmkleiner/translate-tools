@@ -8,10 +8,17 @@ html, body {
 }
 
 body {
-    background-color: red;
+    background-color: darkcyan;
 }
 
 input,textarea {
     margin-bottom:10px;
     margin-left:10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#res {
+    height: 50px;
+    width: 300px;
 }
