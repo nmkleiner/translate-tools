@@ -9,11 +9,12 @@
 </head>
 <body>
     <h1>Your Life Is Easier Now..</h1>
-    <div class="container d-flex">
-        <div class="src-container d-flex flex-column">
+    <div class="container d-flex center">
+        <div class="src-container d-flex flex-column align-items-center">
             <textarea oninput="translate1()" id="src1" cols="30" rows="10" placeholder='W num" X H num" X D num"'></textarea>
             <input type="text" oninput="simpleConvertInchToCm(this.value)" placeholder="inch to cm">
             <input type="text" oninput="simpleConvertLbToKg(this.value)" placeholder="lb to kg">
+            <button class="btn btn-bright" onclick="copyToClipBoard()">Copy result</button>
         </div>
             <textarea id="res" cols="30" rows="10" placeholder="results"></textarea>
     </div>

@@ -61,7 +61,11 @@ function simpleConvertLbToKg(txt) {
     num *= 0.454 * 10
     num = Math.round(num) / 10
     document.querySelector('#res').value = num
+}
 
+function copyToClipBoard() {
+    document.querySelector('#res').select()
+    document.execCommand('copy') 
 }
 
 
