@@ -98,6 +98,9 @@ function copyToClipBoard() {
     document.execCommand('copy') 
 }
 
+function clearInputs() {
+    Array.from(document.querySelectorAll('input')).forEach(input => input.value = '')
+}
 
 function strSplice(str1, idx, length, value) {
     var str2 = '';
