@@ -10,27 +10,35 @@ function translate1() {
     
     console.log('src',srcTxts)
     srcTxts.forEach((txt,i) => {
-        if (txt.toUpperCase() === 'w'.toUpperCase() || 
-        txt.toLowerCase() === 'width'.toLowerCase()) {
+        if (txt.toLowerCase() === 'width'.toLowerCase()) {
+            txt = strSplice(txt,0,5,'רוחב')
+            resTxts[i] = txt
+        }
+        else if (txt.toUpperCase() === 'w'.toUpperCase()) {
             txt = strSplice(txt,0,4,'רוחב')
             resTxts[i] = txt
         }
         else if (txt.toUpperCase() === 'h'.toUpperCase() || 
-        txt.toLowerCase() === 'height'.toLowerCase()) {
-            txt = strSplice(txt,0,4,'גובה')
+                txt.toLowerCase() === 'tall'.toLowerCase()) {
+                    txt = strSplice(txt,0,4,'גובה')
+                    resTxts[i] = txt
+        }
+        else if (txt.toLowerCase() === 'height'.toLowerCase()) {
+            txt = strSplice(txt,0,6,'גובה')
             resTxts[i] = txt
         }
-        else if (txt.toUpperCase() === 'd'.toUpperCase() || 
-        txt.toLowerCase() === 'depth'.toLowerCase()) {
+        else if (txt.toUpperCase() === 'd'.toUpperCase()) {
             txt = strSplice(txt,0,4,'עומק')
+            resTxts[i] = txt
+
+        } 
+        else if (txt.toLowerCase() === 'depth'.toLowerCase()) {
+            txt = strSplice(txt,0,5,'עומק')
             resTxts[i] = txt
         }
         else if (txt.toUpperCase() === 'x'.toUpperCase()) {
             txt = strSplice(txt,0,1,'*')
             resTxts[i] = txt
-        }
-        else if (txt.toUpperCase() === '"'.toUpperCase()) {
-            txt = strSplice(txt,0,4,'ס"מ')
         }
         else if (txt.includes('"')) {
             var idx = txt.indexOf('"')
@@ -39,9 +47,7 @@ function translate1() {
             resTxts[i] = txt
         }
     })
-    // console.log('res:',resTxts)
     var resTxt = resTxts.join(' ')
-    // console.log('res:',resTxt)
     document.querySelector('#res').value = resTxt
 }
 
@@ -52,6 +58,7 @@ function convertInchToCm(txt,idx) {
     num = Math.round(num) / 10
     return num
 }
+
 function simpleConvertInchToCm(txt) {
     var num = parseFloat(txt)
     num *= 2.54 * 10
