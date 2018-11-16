@@ -6,11 +6,14 @@
 html, body {
     margin: 0;
 }
-
+body {
+    background-color: teal;
+}
 .main-container {
     width: 800px;
     height: 500px;
-    border: 1px solid black;
+    border: 1px solid white;
+    border-radius: 15px;
     background-color: darkcyan;
     background-image: url(https://picsum.photos/800/500/?random);
     background-repeat: no-repeat;
