@@ -7,8 +7,13 @@ html, body {
     margin: 0;
 }
 
-body {
+.main-container {
+    width: 800px;
+    height: 500px;
+    border: 1px solid black;
     background-color: darkcyan;
+    background-image: url(https://picsum.photos/800/500/?random);
+    background-repeat: no-repeat;
 }
 
 input,textarea {

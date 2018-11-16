@@ -10,15 +10,18 @@ function translate1() {
     
     console.log('src',srcTxts)
     srcTxts.forEach((txt,i) => {
-        if (txt.toUpperCase() === 'w'.toUpperCase()) {
+        if (txt.toUpperCase() === 'w'.toUpperCase() || 
+        txt.toLowerCase() === 'width'.toLowerCase()) {
             txt = strSplice(txt,0,4,'רוחב')
             resTxts[i] = txt
         }
-        else if (txt.toUpperCase() === 'h'.toUpperCase()) {
+        else if (txt.toUpperCase() === 'h'.toUpperCase() || 
+        txt.toLowerCase() === 'height'.toLowerCase()) {
             txt = strSplice(txt,0,4,'גובה')
             resTxts[i] = txt
         }
-        else if (txt.toUpperCase() === 'd'.toUpperCase()) {
+        else if (txt.toUpperCase() === 'd'.toUpperCase() || 
+        txt.toLowerCase() === 'depth'.toLowerCase()) {
             txt = strSplice(txt,0,4,'עומק')
             resTxts[i] = txt
         }
@@ -53,18 +56,24 @@ function simpleConvertInchToCm(txt) {
     var num = parseFloat(txt)
     num *= 2.54 * 10
     num = Math.round(num) / 10
+    num = num.toString() 
+    num += ' ס"מ'
     document.querySelector('#res').value = num
 }
 function simpleConvertFeetToCm(txt) {
     var num = parseFloat(txt)
     num *= 30.48 * 10
     num = Math.round(num) / 10
+    num = num.toString() 
+    num += ' ס"מ'
     document.querySelector('#res').value = num
 }
 function simpleConvertFeetToM(txt) {
     var num = parseFloat(txt)
     num *= (30.48 / 100) * 10
     num = Math.round(num) / 10
+    num = num.toString() 
+    num += ' מטר'
     document.querySelector('#res').value = num
 }
 
@@ -72,6 +81,8 @@ function simpleConvertLbToKg(txt) {
     var num = parseFloat(txt)
     num *= 0.454 * 10
     num = Math.round(num) / 10
+    num = num.toString() 
+    num += ' ק"ג'
     document.querySelector('#res').value = num
 }
 
